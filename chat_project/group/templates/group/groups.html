@@ -1,0 +1,20 @@
+{% extends 'mainapp/base.html' %}
+{% block title %}Groups - {% endblock %}
+
+{%block content%}
+    <div class="lg:p-20 text-center">
+        <h1 class="lg:text-6xl text-white">Groups</h1>
+    </div>
+
+    <div class="w-full flex flex-wrap items-center">
+        {% for group in groups %}
+            <div class="w-full lg:w-1/4 px-3 py-3">
+                <div class="p-4 bg-white rounded-xl text-center">
+                    <h2 class="mb-5 text-2xl font-semibold">{{ group.name }}</h2>
+
+                    <a href="{% url 'group' group.slug %}" class="px-5 py-3 block rounded-xl text-white bg-purple-600 hover:bg-purple-800">Join</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
